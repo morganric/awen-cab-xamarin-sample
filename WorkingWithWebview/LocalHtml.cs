@@ -9,8 +9,7 @@ namespace WorkingWithWebview
             var browser = new WebView();
             var htmlSource = new HtmlWebViewSource();
             htmlSource.Html = @"<html><body>
-                                <h1>Xamarin.Forms</h1>
-                                <p>Welcome to WebView.</p>
+                                <img src='../extcare-loading.png' />
                                 </body>
                                 </html>";
             browser.Source = htmlSource;

@@ -16,16 +16,16 @@ namespace WorkingWithWebview
                                 <link rel=""stylesheet"" href=""default.css"">
                                 </head>
                                 <body>
-                                <h1>Xamarin.Forms</h1>
-                                <p>The CSS and image are loaded from local files!</p>
-                                <img src='XamarinLogo.png'/>
-                                <p><a href=""local.html"">next page</a></p>
+                                
+                                <img src='XamarinLogo.png' class=""center""/>
+
                                 </body>
                                 </html>";
 
             htmlSource.BaseUrl = DependencyService.Get<IBaseUrl>().Get();
             browser.Source = htmlSource;
             Content = browser;
+
         }
     }
 }

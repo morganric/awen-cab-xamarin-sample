@@ -7,27 +7,24 @@ namespace WorkingWithWebview
     {
         public WebAppPage()
         {
-            var l = new Label
+
+            var openWebApp = new Button
             {
-                Text = "These buttons leave the current app and open the built-in web browser app for the platform"
+                Text = "Setup A Call",
+                VerticalOptions = LayoutOptions.CenterAndExpand,
+                HorizontalOptions = LayoutOptions.Center
             };
 
-            var openUrl = new Button
+            openWebApp.Clicked += async (sender, e) =>
             {
-                Text = "Open location using built-in Web Browser app"
-            };
-            openUrl.Clicked += async (sender, e) =>
-            {
-                await Launcher.OpenAsync("https://screen-streamer-rich.web.app/demos/cba-fcsdk");
-            };
+                await Browser.OpenAsync("https://screen-streamer-rich.web.app/demos/cba-fcsdk", new BrowserLaunchOptions {
 
-            var makeCall = new Button
-            {
-                Text = "Make call using built-in Phone app"
-            };
-            makeCall.Clicked += async (sender, e) =>
-            {
-                await Launcher.OpenAsync("tel:1855XAMARIN");
+                        LaunchMode = BrowserLaunchMode.SystemPreferred,
+                        TitleMode = BrowserTitleMode.Show,
+                        PreferredToolbarColor = Color.White,
+                        PreferredControlColor = Color.White
+                });
+
             };
 
             Content = new StackLayout
@@ -35,9 +32,7 @@ namespace WorkingWithWebview
                 Padding = new Thickness(5, 20, 5, 0),
                 HorizontalOptions = LayoutOptions.Fill,
                 Children = {
-                    l,
-                    openUrl,
-                    makeCall
+                    openWebApp
                 }
             };
         }
